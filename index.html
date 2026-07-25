@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>广东恒彩日用制品厂 | 专业拖把制造商</title>
+    <style>
+        /* ===== Reset & Base ===== */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            background: #f7f5f0;
+            color: #2c2c2c;
+            line-height: 1.7;
+        }
+        img { max-width: 100%; display: block; }
+
+        /* ===== Typography ===== */
+        h1, h2, h3, h4 { font-weight: 400; letter-spacing: 0.03em; }
+        h1 { font-size: clamp(2.2rem, 5vw, 4rem); }
+        h2 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); text-align: center; }
+        h3 { font-size: 1.35rem; }
+
+        /* ===== Header / Navigation ===== */
+        .top-bar {
+            background: #1e2a3a;
+            color: #ddd;
+            font-size: 0.85rem;
+            padding: 0.4rem 2rem;
+            display: flex;
+            justify-content: flex-end;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        .top-bar span { white-space: nowrap; }
+
+        nav {
+            background: #fff;
+            padding: 0.8rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            border-bottom: 2px solid #d4a853;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+        }
+        nav .logo {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #1e2a3a;
+            letter-spacing: 0.05em;
+        }
+        nav .logo small { font-weight: 300; font-size: 0.7rem; color: #a07a3a; display: block; }
+        nav .nav-links { display: flex; gap: 1.8rem; align-items: center; flex-wrap: wrap; }
+        nav .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-size: 0.95rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            transition: color 0.25s;
+        }
+        nav .nav-links a:hover { color: #d4a853; }
+
+        /* ===== Language Toggle ===== */
+        .lang-toggle {
+            display: flex;
+            gap: 0;
+            border: 1.5px solid #d4a853;
+            border-radius: 4px;
+            overflow: hidden;
+            font-size: 0.8rem;
+            line-height: 1;
+        }
+        .lang-toggle button {
+            border: none;
+            background: transparent;
+            padding: 0.35rem 0.7rem;
+            cursor: pointer;
+            color: #999;
+            font-family: inherit;
+            font-size: 0.8rem;
+            transition: all 0.2s;
+            letter-spacing: 0.05em;
+        }
+        .lang-toggle button.active {
+            background: #d4a853;
+            color: #fff;
+        }
+        .lang-toggle button:not(.active):hover {
+            color: #d4a853;
+        }
+
+        /* ===== Hero ===== */
+        .hero {
+            background: linear-gradient(135deg, #1e2a3a 0%, #2c3e50 50%, #3a4a5e 100%);
+            color: #fff;
+            padding: 6rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0L60 30 30 60 0 30Z' fill='none' stroke='rgba(255,255,255,0.03)' stroke-width='1'/%3E%3C/svg%3E");
+            opacity: 0.4;
+            pointer-events: none;
+        }
+        .hero > * { position: relative; z-index: 1; }
+        .hero h1 { margin-bottom: 0.5rem; }
+        .hero h1 em { font-style: normal; color: #d4a853; }
+        .hero p {
+            font-size: 1.15rem;
+            max-width: 680px;
+            margin: 1rem auto 2rem;
+            color: #ccc;
+        }
+        .hero .btn {
+            display: inline-block;
+            border: 2px solid #d4a853;
+            color: #d4a853;
+            padding: 0.75rem 2.5rem;
+            text-decoration: none;
+            letter-spacing: 0.08em;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+        }
+        .hero .btn:hover { background: #d4a853; color: #1e2a3a; }
+
+        /* ===== Container ===== */
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+
+        /* ===== Section styling ===== */
+        section { padding: 5rem 0; }
+        .section-title {
+            display: inline-block;
+            position: relative;
+            margin-bottom: 2.5rem;
+            color: #1e2a3a;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70px;
+            height: 3px;
+            background: #d4a853;
+        }
+        .section-desc {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            color: #666;
+        }
+
+        /* ===== About ===== */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        .about-grid .text p { margin-bottom: 1.2rem; color: #555; }
+        .about-grid .image {
+            background: #e8e1d5;
+            aspect-ratio: 4 / 3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            color: #8a7a6a;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .about-grid .image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .about-stats {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 2.5rem;
+            text-align: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+        .about-stats .stat h3 { font-size: 2.2rem; color: #d4a853; }
+        .about-stats .stat p { color: #888; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.08em; }
+
+        /* ===== Products ===== */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        .product-card {
+            background: #fff;
+            border: 1px solid #e5ddd0;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-radius: 6px;
+            overflow: hidden;
+        }
+        .product-card:hover { transform: translateY(-6px); box-shadow: 0 8px 30px rgba(0,0,0,0.08); }
+        .product-card .img-holder {
+            height: 240px;
+            background: #f0ebe0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            padding: 12px;
+            position: relative;
+            cursor: pointer;
+        }
+        .product-card .img-holder img {
+            width: auto;
+            height: 100%;
+            max-width: 100%;
+            object-fit: contain;
+        }
+
+        .product-card .info { padding: 1.5rem; }
+        .product-card .info h3 { margin-bottom: 0.5rem; color: #1e2a3a; }
+        .product-card .info p { color: #777; font-size: 0.9rem; }
+
+        /* ===== Features ===== */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 2rem;
+        }
+        .feature-item {
+            background: #fff;
+            padding: 2rem 1.5rem;
+            border-left: 4px solid #d4a853;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+        }
+        .feature-item .icon { font-size: 2rem; margin-bottom: 0.8rem; }
+        .feature-item h3 { color: #1e2a3a; margin-bottom: 0.5rem; }
+        .feature-item p { color: #777; font-size: 0.9rem; }
+
+        /* ===== Gallery ===== */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1rem;
+        }
+        .gallery-grid .gallery-item {
+            aspect-ratio: 1;
+            background: #d6cec0;
+            border-radius: 6px;
+            overflow: hidden;
+        }
+        .gallery-grid .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* ===== Contact ===== */
+        .contact-section {
+            background: #1e2a3a;
+            color: #ddd;
+        }
+        .contact-section .section-title { color: #fff; }
+        .contact-section .section-title::after { background: #d4a853; }
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .contact-card {
+            background: rgba(255,255,255,0.06);
+            padding: 2rem 1.5rem;
+            text-align: center;
+            border-radius: 6px;
+            backdrop-filter: blur(4px);
+        }
+        .contact-card .icon { font-size: 2rem; margin-bottom: 0.8rem; }
+        .contact-card h3 { color: #d4a853; margin-bottom: 0.5rem; font-size: 1rem; text-transform: uppercase; letter-spacing: 0.1em; }
+        .contact-card p { color: #bbb; font-size: 0.95rem; }
+
+        /* ===== Footer ===== */
+        footer {
+            background: #141e2a;
+            color: #999;
+            text-align: center;
+            padding: 2.5rem 1.5rem;
+            font-size: 0.85rem;
+        }
+        footer a { color: #d4a853; text-decoration: none; margin: 0 1rem; transition: color 0.25s; }
+        footer a:hover { color: #fff; }
+        footer p { margin-top: 1rem; }
+
+        /* ===== Responsive ===== */
+        @media (max-width: 768px) {
+            nav { flex-direction: column; gap: 0.8rem; }
+            nav .nav-links { justify-content: center; }
+            .about-grid { grid-template-columns: 1fr; }
+            .hero { padding: 4rem 1.5rem; }
+            .top-bar { justify-content: center; font-size: 0.78rem; gap: 1rem; }
+            .product-card .img-holder { height: 200px; }
+        }
+
+    </style>
+</head>
+<body>
+
+<!-- ===== Top Bar ===== -->
+<div class="top-bar">
+    <span>📞 15766325878</span>
+    <span>📍 <span data-i18n="top-location">广东省揭阳市</span></span>
+    <span>📧 1837208323@qq.com</span>
+</div>
+
+<!-- ===== Navigation ===== -->
+<nav>
+    <div class="logo">
+        <span data-i18n="logo-company">广东恒彩日用制品厂</span>
+        <small data-i18n="logo-tagline">GUANGDONG HENGCAI · MOP MANUFACTURER</small>
+    </div>
+    <div class="nav-links">
+        <a href="#about" data-i18n="nav-about">关于我们</a>
+        <a href="#products" data-i18n="nav-products">产品中心</a>
+        <a href="#features" data-i18n="nav-features">核心优势</a>
+        <a href="#gallery" data-i18n="nav-gallery">工厂实拍</a>
+        <a href="#contact" data-i18n="nav-contact">联系我们</a>
+        <div class="lang-toggle">
+            <button class="active" onclick="switchLang('zh')" data-lang="zh">中</button>
+            <button onclick="switchLang('en')" data-lang="en">EN</button>
+        </div>
+    </div>
+</nav>
+
+<!-- ===== Hero ===== -->
+<section class="hero">
+    <h1 data-i18n="hero-title">专业 <em>拖把</em> 制造商</h1>
+    <p data-i18n="hero-desc">
+        我们专注于生产高品质、耐用且环保的拖把产品，融合美式工业设计与精湛工艺，
+        为全球家庭带来轻松洁净的生活体验。
+    </p>
+    <a href="#contact" class="btn" data-i18n="hero-cta">获取报价 →</a>
+</section>
+
+<!-- ===== About ===== -->
+<section id="about">
+    <div class="container">
+        <h2 class="section-title" data-i18n="about-title">关于恒彩</h2>
+        <p class="section-desc" data-i18n="about-subtitle">扎根广东揭阳十余载，以匠心品质赢得全球信赖。</p>
+        <div class="about-grid">
+            <div class="text">
+                <p data-i18n="about-p1">
+                    广东恒彩日用制品厂成立于 2008 年，位于广东省揭阳市，是一家专业从事拖把
+                    研发、生产与销售的企业。我们拥有先进的自动化生产线和严格的品控体系，
+                    致力于为全球客户提供优质的清洁用品解决方案。
+                </p>
+                <p data-i18n="about-p2">
+                    我们的产品远销美国、欧洲、东南亚等多个国家和地区，凭借过硬的质量
+                    和贴心的服务，深受客户好评。作为行业领先的拖把供应商之一，
+                    恒彩始终秉持"品质为本、创新为魂"的经营理念，不断推陈出新。
+                </p>
+            </div>
+            <div class="image">
+                <img src="factory_gate.png" alt="恒彩工厂大门" loading="lazy" />
+            </div>
+        </div>
+        <div class="about-stats">
+            <div class="stat"><h3>2008</h3><p data-i18n="stat-since">成立至今</p></div>
+            <div class="stat"><h3>50+</h3><p data-i18n="stat-countries">出口国家</p></div>
+            <div class="stat"><h3>200万+</h3><p data-i18n="stat-output">年产量</p></div>
+            <div class="stat"><h3>99%</h3><p data-i18n="stat-satisfaction">客户满意度</p></div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== Products ===== -->
+<section id="products" style="background:#fff;">
+    <div class="container">
+        <h2 class="section-title" data-i18n="products-title">产品中心</h2>
+        <p class="section-desc" data-i18n="products-subtitle">多款拖把产品，满足不同清洁场景需求。</p>
+        <div class="products-grid">
+            <div class="product-card">
+                <div class="img-holder" onclick="location.href='product1.html'">
+                    <img src="mop_product.jpg" alt="毛巾布拖把" loading="lazy" />
+                </div>
+                <div class="info">
+                    <h3 data-i18n="prod1-name">毛巾布拖把 <span style="font-size:0.75rem;color:#a07a3a;font-weight:300;">Towel Cloth Mop</span></h3>
+                    <p><span data-i18n="prod1-desc">选用特级毛巾布料，吸水迅速、柔软不伤地面，可拆卸清洗，经济实用。适合家庭日常清洁使用。</span><br><span style="font-size:0.85rem;color:#999;" data-i18n="prod1-desc-en">Made from premium towel cloth — super absorbent, soft on floors, washable and reusable. Ideal for daily home cleaning.</span></p>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="img-holder" onclick="location.href='product2.html'">
+                    <img src="mop_product2.jpg" alt="棉纱拖把" loading="lazy" />
+                </div>
+                <div class="info">
+                    <h3 data-i18n="prod2-name">棉纱拖把 <span style="font-size:0.75rem;color:#a07a3a;font-weight:300;">Cotton Yarn Mop</span></h3>
+                    <p><span data-i18n="prod2-desc">可拆卸易清洗，棉纱材质吸水性强，柔软不伤地板，拆洗方便，经久耐用。</span><br><span style="font-size:0.85rem;color:#999;" data-i18n="prod2-desc-en">Detachable and easy to clean. Made of cotton yarn — highly absorbent, soft, and built to last.</span></p>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="img-holder" onclick="location.href='product3.html'">
+                    <img src="mop_product3.jpg" alt="超细纤维拖把" loading="lazy" />
+                </div>
+                <div class="info">
+                    <h3 data-i18n="prod3-name">超细纤维拖把 <span style="font-size:0.75rem;color:#a07a3a;font-weight:300;">Microfiber Mop</span></h3>
+                    <p><span data-i18n="prod3-desc">全新材料制造，耐用耐脏，易清洗，清洁效果出色。</span><br><span style="font-size:0.85rem;color:#999;" data-i18n="prod3-desc-en">Made of brand-new material — durable, stain-resistant, easy to clean, with excellent cleaning performance.</span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== Features ===== -->
+<section id="features">
+    <div class="container">
+        <h2 class="section-title" data-i18n="features-title">核心优势</h2>
+        <p class="section-desc" data-i18n="features-subtitle">为什么全球客户选择恒彩？</p>
+        <div class="features-grid">
+            <div class="feature-item">
+                <div class="icon">🏭</div>
+                <h3 data-i18n="feat1-title">优质材料</h3>
+                <p data-i18n="feat1-desc">精选高品质原材料，从源头把控产品品质，确保每一把拖把都经久耐用。</p>
+            </div>
+            <div class="feature-item">
+                <div class="icon">⚙️</div>
+                <h3 data-i18n="feat2-title">先进工艺</h3>
+                <p data-i18n="feat2-desc">引进国际先进生产设备与自动化流水线，生产效率高，品质稳定如一。</p>
+            </div>
+            <div class="feature-item">
+                <div class="icon">✅</div>
+                <h3 data-i18n="feat3-title">严格质检</h3>
+                <p data-i18n="feat3-desc">每件产品经过 6 道质量检测工序，层层把关，确保达到出口级品质标准。</p>
+            </div>
+            <div class="feature-item">
+                <div class="icon">🚚</div>
+                <h3 data-i18n="feat4-title">快速交付</h3>
+                <p data-i18n="feat4-desc">高效的生产排程与完善的物流体系，确保订单准时交付，全球可达。</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== Gallery ===== -->
+<section id="gallery" style="background:#fff;">
+    <div class="container">
+        <h2 class="section-title" data-i18n="gallery-title">工厂实拍</h2>
+        <p class="section-desc" data-i18n="gallery-subtitle">走进恒彩，感受专业与品质。</p>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="gallery_workshop.png" alt="工厂车间" data-i18n-alt="gallery-workshop" loading="lazy" />
+            </div>
+            <div class="gallery-item">
+                <img src="gallery_production.png" alt="生产线" data-i18n-alt="gallery-production" loading="lazy" />
+            </div>
+            <div class="gallery-item">
+                <img src="gallery_qc.png" alt="质检环节" data-i18n-alt="gallery-qc" loading="lazy" />
+            </div>
+            <div class="gallery-item">
+                <img src="gallery_warehouse.png" alt="仓库" data-i18n-alt="gallery-warehouse" loading="lazy" />
+            </div>
+            <div class="gallery-item">
+                <img src="gallery_office.png" alt="办公室" data-i18n-alt="gallery-office" loading="lazy" />
+            </div>
+            <div class="gallery-item">
+                <img src="gallery_display.png" alt="产品展示" data-i18n-alt="gallery-display" loading="lazy" />
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== Contact ===== -->
+<section id="contact" class="contact-section">
+    <div class="container">
+        <h2 class="section-title" data-i18n="contact-title">联系我们</h2>
+        <p class="section-desc" style="color:#bbb;" data-i18n="contact-subtitle">如需询价、定制或洽谈合作，欢迎随时与我们取得联系。</p>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin-top:2rem;">
+            <div class="contact-card" style="margin:0;">
+                <div class="icon">📞</div>
+                <h3 data-i18n="contact-phone">联系电话</h3>
+                <p>15766325878</p>
+            </div>
+            <div class="contact-card" style="margin:0;">
+                <div class="icon">📍</div>
+                <h3 data-i18n="contact-addr">公司地址</h3>
+                <p data-i18n="contact-addr-val">广东省揭阳市</p>
+            </div>
+            <div class="contact-card" style="margin:0;">
+                <div class="icon">✉️</div>
+                <h3 data-i18n="contact-email">电子邮箱</h3>
+                <p>1837208323@qq.com</p>
+            </div>
+            <div class="contact-card" style="margin:0;">
+                <div class="icon">🕐</div>
+                <h3 data-i18n="contact-hours">工作时间</h3>
+                <p data-i18n="contact-hours-val">周一至周六 8:00 - 18:00</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== Footer ===== -->
+<footer>
+    <div>
+        <a href="#about" data-i18n="nav-about">关于我们</a>
+        <a href="#products" data-i18n="nav-products">产品中心</a>
+        <a href="#features" data-i18n="nav-features">核心优势</a>
+        <a href="#contact" data-i18n="nav-contact">联系我们</a>
+    </div>
+    <p>&copy; 2026 <span data-i18n="logo-company">广东恒彩日用制品厂</span> &nbsp;|&nbsp; All Rights Reserved</p>
+</footer>
+
+<script>
+/* ===== i18n Translation Table ===== */
+const translations = {
+    'top-location':   { zh:'广东省揭阳市', en:'Jieyang, Guangdong, China' },
+    'logo-company':   { zh:'广东恒彩日用制品厂', en:'Guangdong Hengcai Daily Products Factory' },
+    'logo-tagline':   { zh:'GUANGDONG HENGCAI · MOP MANUFACTURER', en:'GUANGDONG HENGCAI · MOP MANUFACTURER' },
+    'nav-about':      { zh:'关于我们', en:'About Us' },
+    'nav-products':   { zh:'产品中心', en:'Products' },
+    'nav-features':   { zh:'核心优势', en:'Advantages' },
+    'nav-gallery':    { zh:'工厂实拍', en:'Gallery' },
+    'nav-contact':    { zh:'联系我们', en:'Contact' },
+    'hero-title':     { zh:'专业 <em>拖把</em> 制造商', en:'Professional <em>Mop</em> Manufacturer' },
+    'hero-desc':      { zh:'我们专注于生产高品质、耐用且环保的拖把产品，融合美式工业设计与精湛工艺，为全球家庭带来轻松洁净的生活体验。', en:'We specialize in high-quality, durable, and eco-friendly mop products. Blending modern industrial design with precision craftsmanship to deliver effortless cleanliness for homes worldwide.' },
+    'hero-cta':       { zh:'获取报价 →', en:'Get a Quote →' },
+    'about-title':    { zh:'关于恒彩', en:'About Hengcai' },
+    'about-subtitle': { zh:'扎根广东揭阳十余载，以匠心品质赢得全球信赖。', en:'Rooted in Jieyang, Guangdong for over a decade — trusted worldwide for quality.' },
+    'about-p1':       { zh:'广东恒彩日用制品厂成立于 2008 年，位于广东省揭阳市，是一家专业从事拖把研发、生产与销售的企业。我们拥有先进的自动化生产线和严格的品控体系，致力于为全球客户提供优质的清洁用品解决方案。', en:'Founded in 2008 in Jieyang, Guangdong, Hengcai is a professional mop manufacturer specializing in R&D, production and sales. With automated production lines and strict quality control, we deliver premium cleaning solutions to global clients.' },
+    'about-p2':       { zh:'我们的产品远销美国、欧洲、东南亚等多个国家和地区，凭借过硬的质量和贴心的服务，深受客户好评。作为行业领先的拖把供应商之一，恒彩始终秉持"品质为本、创新为魂"的经营理念，不断推陈出新。', en:'Our products are exported to the USA, Europe, Southeast Asia and beyond — praised for excellent quality and attentive service. As a leading mop supplier, Hengcai upholds "Quality First, Innovation Driven" as our guiding philosophy.' },
+    'stat-since':     { zh:'成立至今', en:'Since 2008' },
+    'stat-countries': { zh:'出口国家', en:'Export Countries' },
+    'stat-output':    { zh:'年产量', en:'Annual Output' },
+    'stat-satisfaction': { zh:'客户满意度', en:'Satisfaction Rate' },
+    'products-title':    { zh:'产品中心', en:'Our Products' },
+    'products-subtitle': { zh:'多款拖把产品，满足不同清洁场景需求。', en:'A range of mop products for every cleaning need.' },
+    'prod1-name':    { zh:'毛巾布拖把 Towel Cloth Mop', en:'Towel Cloth Mop 毛巾布拖把' },
+    'prod1-desc':    { zh:'选用特级毛巾布料，吸水迅速、柔软不伤地面，可拆卸清洗，经济实用。适合家庭日常清洁使用。', en:'Made from premium towel cloth — super absorbent, soft on floors, washable and reusable. Ideal for daily home cleaning.' },
+    'prod1-desc-en': { zh:'Made from high-density towel cloth — super absorbent, soft on floors, washable and reusable. Ideal for daily home cleaning.', en:'Made from high-density towel cloth — super absorbent, soft on floors, washable and reusable. Ideal for daily home cleaning.' },
+    'prod2-name':    { zh:'棉纱拖把 Cotton Yarn Mop', en:'Cotton Yarn Mop 棉纱拖把' },
+    'prod2-desc':    { zh:'可拆卸易清洗，优质棉纱材质吸水性强，柔软不伤地板，拆洗方便，经久耐用。', en:'Detachable and easy to clean. Made of premium cotton yarn — highly absorbent, soft, and built to last.' },
+    'prod2-desc-en': { zh:'Detachable and easy to clean. Made of cotton yarn — highly absorbent, soft, and built to last.', en:'Detachable and easy to clean. Made of cotton yarn — highly absorbent, soft, and built to last.' },
+    'prod3-name':    { zh:'超细纤维拖把 Microfiber Mop', en:'Microfiber Mop 超细纤维拖把' },
+    'prod3-desc':    { zh:'全新材料制造，耐用耐脏，易清洗，清洁效果出色。', en:'Made of brand-new material — durable, stain-resistant, easy to clean, with excellent cleaning performance.' },
+    'prod3-desc-en': { zh:'Made of brand-new material — durable, stain-resistant, easy to clean.', en:'Made of brand-new material — durable, stain-resistant, easy to clean.' },
+    'features-title':    { zh:'核心优势', en:'Core Advantages' },
+    'features-subtitle': { zh:'为什么全球客户选择恒彩？', en:'Why Global Customers Choose Hengcai' },
+    'feat1-title': { zh:'优质材料', en:'Premium Materials' },
+    'feat1-desc':  { zh:'精选高品质原材料，从源头把控产品品质，确保每一把拖把都经久耐用。', en:'Carefully selected raw materials ensure every mop is built to last.' },
+    'feat2-title': { zh:'先进工艺', en:'Advanced Craftsmanship' },
+    'feat2-desc':  { zh:'引进国际先进生产设备与自动化流水线，生产效率高，品质稳定如一。', en:'State-of-the-art automated production lines deliver consistent, high-quality output.' },
+    'feat3-title': { zh:'严格质检', en:'Rigorous QC' },
+    'feat3-desc':  { zh:'每件产品经过 6 道质量检测工序，层层把关，确保达到出口级品质标准。', en:'Every product passes 6 quality checks to meet export-grade standards.' },
+    'feat4-title': { zh:'快速交付', en:'Fast Delivery' },
+    'feat4-desc':  { zh:'高效的生产排程与完善的物流体系，确保订单准时交付，全球可达。', en:'Efficient scheduling and global logistics ensure on-time delivery worldwide.' },
+    'gallery-title':    { zh:'工厂实拍', en:'Factory Gallery' },
+    'gallery-subtitle': { zh:'走进恒彩，感受专业与品质。', en:'Step inside Hengcai — see quality in action.' },
+    'gallery-workshop':   { zh:'工厂车间', en:'Factory Workshop' },
+    'gallery-production': { zh:'生产线', en:'Production Line' },
+    'gallery-qc':         { zh:'质检环节', en:'Quality Control' },
+    'gallery-warehouse':  { zh:'仓库', en:'Warehouse' },
+    'gallery-office':     { zh:'办公室', en:'Office' },
+    'gallery-display':    { zh:'产品展示', en:'Product Display' },
+    'contact-title':    { zh:'联系我们', en:'Contact Us' },
+    'contact-subtitle': { zh:'如需询价、定制或洽谈合作，欢迎随时与我们取得联系。', en:'For inquiries, OEM/ODM orders, or partnership — get in touch anytime.' },
+    'contact-phone':    { zh:'联系电话', en:'Phone' },
+    'contact-addr':     { zh:'公司地址', en:'Address' },
+    'contact-addr-val': { zh:'广东省揭阳市', en:'Jieyang, Guangdong, China' },
+    'contact-email':    { zh:'电子邮箱', en:'Email' },
+    'contact-hours':    { zh:'工作时间', en:'Business Hours' },
+    'contact-hours-val': { zh:'周一至周六 8:00 - 18:00', en:'Mon–Sat 8:00 – 18:00' },
+    'contact-wechat': { zh:'微信', en:'WeChat' },
+    'contact-alibaba': { zh:'阿里巴巴', en:'Alibaba' },
+    'contact-alibaba-val': { zh:'shop1495213143253.1688.com', en:'shop1495213143253.1688.com' },
+};
+
+let currentLang = localStorage.getItem('hc_lang') || 'zh';
+
+function switchLang(lang) {
+    currentLang = lang;
+    localStorage.setItem('hc_lang', lang);
+    document.querySelectorAll('.lang-toggle button').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.lang === lang);
+    });
+    document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.dataset.i18n;
+        const text = translations[key]?.[lang];
+        if (text !== undefined) el.innerHTML = text;
+    });
+    document.querySelectorAll('[data-i18n-alt]').forEach(el => {
+        const key = el.dataset.i18nAlt;
+        const text = translations[key]?.[lang];
+        if (text !== undefined) el.alt = text;
+    });
+}
+
+document.addEventListener('DOMContentLoaded', () => { switchLang(currentLang); });
+</script>
+</body>
+</html>
